@@ -1,0 +1,15 @@
+categories:
+  - title: 'Enhancements'
+    label: 'enhancement'
+  - title: 'Bug fixes'
+    label: 'bug'
+  - title: 'Dependency updates'
+    label: 'dependencies'
+exclude-labels:
+  - 'ci'
+  - 'documentation'
+  - 'maintenance'
+template: |
+  ## Changes
+
+  $CHANGES

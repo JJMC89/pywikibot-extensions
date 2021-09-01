@@ -1,0 +1,120 @@
+[build-system]
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.coverage]
+
+[tool.coverage.run]
+branch = true
+source_pkgs = ["pywikibot_extensions"]
+
+[tool.coverage.report]
+fail_under = 100
+show_missing = true
+skip_covered = true
+
+
+[tool.black]
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+include = '\.py$'
+line-length = 79  # default: 88
+
+
+[tool.isort]
+atomic = true
+ensure_newline_before_comments = true
+force_grid_wrap = 0
+include_trailing_comma = true
+lines_after_imports = 2
+multi_line_output = 3
+use_parentheses = true
+
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+show_error_codes = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = "pywikibot.*"
+ignore_missing_imports = true
+
+
+[tool.poetry]
+authors = ["JJMC89"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Wiki",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+description = "Extends the Pywikibot library"
+keywords = ["bot", "mediawiki"]
+license = "MIT"
+name = "pywikibot-extensions"
+packages = [
+    { include = "pywikibot_extensions", from = "src" },
+]
+readme = "README.md"
+repository = "https://github.com/JJMC89/pywikibot-extensions"
+version = "21.9.1"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pywikibot = "^6.5.0"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "2.14.1"
+pylint = "2.10.2"
+pytest = "6.2.5"
+pytest-cov = "2.12.1"
+pytest-mock = "3.6.1"
+pytest-socket = "0.4.1"
+pywikibot = {version = "^6.5.0", extras = ["mwparserfromhell"]}
+
+[tool.pylint]
+
+[tool.pylint.master]
+# Use multiple processes to speed up Pylint.
+jobs = 0  # default: 1
+
+[tool.pylint.basic]
+# Good variable names which should always be accepted
+good-names = "e,i,j,k,_"  # default: i,j,k,ex,Run,_
+
+[tool.pylint.format]
+max-line-length = 79  # default: 100
+
+[tool.pylint.reports]
+reports = "yes"
+
+
+[tool.pytest]
+
+[tool.pytest.ini_options]
+addopts = "--cov --no-cov-on-fail"

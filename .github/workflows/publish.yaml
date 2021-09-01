@@ -1,0 +1,34 @@
+name: Publish
+on:
+  release:
+    types:
+      - released
+jobs:
+  build-publish:
+    name: Build and publish
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.7
+      - name: Set up Poetry
+        uses: Gr1N/setup-poetry@v7
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+        with:
+          persist-credentials: false
+      - name: Build
+        run: poetry build
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@v1.4.2
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          user: __token__
+      - name: Upload to GitHub release
+        uses: shogo82148/actions-upload-release-asset@v1.3.1
+        with:
+          asset_path: dist/*
+          upload_url: ${{ github.event.release.upload_url }}
