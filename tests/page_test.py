@@ -111,6 +111,12 @@ def test_page_from_wikilink(
     assert Page.from_wikilink(wikilink, SITE, namespace) == expected
 
 
+def test_page_from_wikilink_error() -> None:
+    """Test Page.from_wikilnk raises ValueError."""
+    with pytest.raises(ValueError, match=r"Cannot create a FilePage from .+:"):
+        FilePage.from_wikilink("[[User:Foo]]", SITE)
+
+
 @pytest.mark.parametrize(
     "wikilink, expected",
     [

@@ -63,8 +63,13 @@ class Page(pywikibot.Page):
         """
         text = removeDisabledParts(str(wikilink), site=site)
         text = text.strip().lstrip("[").rstrip("]")
-        link = pywikibot.Link(text, site, default_namespace)
-        return cls(link)
+        try:
+            link = pywikibot.Link(text, site, default_namespace)
+            return cls(link)
+        except Exception as e:
+            raise ValueError(
+                f"Cannot create a {cls.__name__} from {wikilink!r}: {e}"
+            ) from None
 
     def has_template(
         self, templates: str | Iterable[pywikibot.Page | str]
