@@ -65,6 +65,7 @@ class Page(pywikibot.Page):
         text = text.strip().lstrip("[").rstrip("]")
         try:
             link = pywikibot.Link(text, site, default_namespace)
+            link.parse()  # To catch any exceptions
             return cls(link)
         except Exception as e:
             raise ValueError(
