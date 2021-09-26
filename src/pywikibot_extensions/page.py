@@ -11,10 +11,12 @@ from functools import lru_cache
 from typing import Any, Generator, Iterable, TypeVar, Union
 
 import pywikibot
+from pywikibot.site import Namespace
 from pywikibot.textlib import removeDisabledParts
 
 
 FilePageType = TypeVar("FilePageType", bound="FilePage")
+NamespaceType = Union[int, str, Namespace]
 PageSource = Union[
     pywikibot.page.Page, pywikibot.site.BaseSite, pywikibot.page.BaseLink
 ]
@@ -24,8 +26,14 @@ PageType = TypeVar("PageType", bound="Page")
 @lru_cache()
 def get_redirects(
     pages: frozenset[pywikibot.Page],
+    namespaces: NamespaceType | frozenset[NamespaceType] | None = None,
 ) -> frozenset[pywikibot.Page]:
-    """Return all possible titles as pages for a set of pages."""
+    """
+    Return possible titles as pages for a set of pages.
+
+    :param pages: Set of pages to get titles for
+    :param namespaces: Limit redirects to these namespaces
+    """
     link_pages = set()
     for page in pages:
         with suppress(pywikibot.exceptions.CircularRedirectError):
@@ -34,7 +42,11 @@ def get_redirects(
         if not page.exists():
             continue
         link_pages.add(page)
-        link_pages.update(page.backlinks(filter_redirects=True))
+        with suppress(pywikibot.exceptions.CircularRedirectError):
+            redirects = page.backlinks(
+                filter_redirects=True, namespaces=namespaces
+            )
+            link_pages.update(redirects)
     return frozenset(link_pages)
 
 
