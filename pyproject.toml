@@ -3,18 +3,6 @@ requires = ["poetry_core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 
-[tool.coverage]
-
-[tool.coverage.run]
-branch = true
-source_pkgs = ["pywikibot_extensions"]
-
-[tool.coverage.report]
-fail_under = 100
-show_missing = true
-skip_covered = true
-
-
 [tool.black]
 exclude = '''
 /(
@@ -28,6 +16,18 @@ exclude = '''
 '''
 include = '\.py$'
 line-length = 79  # default: 88
+
+
+[tool.coverage]
+
+[tool.coverage.run]
+branch = true
+source_pkgs = ["pywikibot_extensions"]
+
+[tool.coverage.report]
+fail_under = 100
+show_missing = true
+skip_covered = true
 
 
 [tool.isort]
@@ -67,6 +67,7 @@ classifiers = [
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: Implementation :: CPython",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Wiki",
