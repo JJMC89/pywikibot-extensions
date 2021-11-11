@@ -215,6 +215,26 @@ def test_page_is_article(
     assert test_page.is_article is expected
 
 
+def test_page_is_article_catches_exception(mocker: MockerFixture) -> None:
+    """Test Page.is_article when it catches an exception."""
+    test_page = Page(SITE, "ticket:99998877665544321")
+    mocker.patch(
+        "pywikibot_extensions.page.Page.isDisambig",
+        side_effect=pywikibot.exceptions.SiteDefinitionError(
+            "Invalid AutoFamily('ticket.wikimedia.org')"
+        ),
+    )
+    mocker.patch(
+        "pywikibot_extensions.page.Page.isRedirectPage",
+        return_value=False,
+    )
+    mocker.patch(
+        "pywikibot_extensions.page.Page.namespace",
+        return_value=0,
+    )
+    assert test_page.is_article is False
+
+
 @pytest.mark.parametrize(
     "text, old_text, exists, new_text",
     [
