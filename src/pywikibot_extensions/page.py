@@ -107,11 +107,14 @@ class Page(pywikibot.Page):
     @property
     def is_article(self) -> bool:
         """Return True if the page is an article. False otherwise."""
-        return (
-            self.namespace() == 0
-            and not self.isDisambig()
-            and not self.isRedirectPage()
-        )
+        try:
+            return (
+                self.namespace() == 0
+                and not self.isDisambig()
+                and not self.isRedirectPage()
+            )
+        except pywikibot.exceptions.Error:
+            return False
 
     def save_bot_start_end(
         self,
