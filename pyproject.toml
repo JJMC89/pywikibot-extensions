@@ -95,7 +95,7 @@ pylint = "2.12.1"
 pytest = "6.2.5"
 pytest-cov = "3.0.0"
 pytest-mock = "3.6.1"
-pytest-socket = "0.4.1"
+pytest-socket = "0.5.0"
 pywikibot = {version = "^6.6.1", extras = ["mwparserfromhell"]}
 
 [tool.pylint]
