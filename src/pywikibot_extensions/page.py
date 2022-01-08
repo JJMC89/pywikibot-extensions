@@ -6,6 +6,7 @@ This module extends pywikibot.page.
 from __future__ import annotations
 
 import re
+import unicodedata
 from contextlib import suppress
 from functools import lru_cache
 from typing import Any, Generator, Iterable, TypeVar, Union
@@ -74,6 +75,8 @@ class Page(pywikibot.Page):
             contain one (defaults to 0)
         """
         text = removeDisabledParts(str(wikilink), site=site)
+        # Remove unicode control characters
+        text = "".join(c for c in text if unicodedata.category(c)[0] != "C")
         text = text.strip().lstrip("[").rstrip("]")
         try:
             link = pywikibot.Link(text, site, default_namespace)

@@ -102,6 +102,7 @@ def test_get_redirects_for_redirect(mocker: MockerFixture) -> None:
         ("[[Foo]]", 0, Page(SITE, "Foo")),
         ("[[Baz_]]", 1, Page(SITE, "Talk:Baz")),
         ("Bar_", 2, Page(SITE, "User:Bar")),
+        ("[[Foo \u200e]]", 0, Page(SITE, "Foo")),
     ],
 )
 def test_page_from_wikilink(
