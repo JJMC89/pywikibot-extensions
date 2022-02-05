@@ -22,13 +22,13 @@ jobs:
           persist-credentials: false
       - name: Build
         run: poetry build
-      - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.5.0
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
-          user: __token__
       - name: Upload to GitHub release
         uses: shogo82148/actions-upload-release-asset@v1.5.0
         with:
           asset_path: dist/*
           upload_url: ${{ github.event.release.upload_url }}
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@v1.5.0
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          user: __token__
