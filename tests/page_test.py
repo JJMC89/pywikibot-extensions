@@ -14,7 +14,7 @@ SITE = pywikibot.Site("test", "wikipedia")
 
 
 @pytest.mark.parametrize(
-    "pages, backlinks, expected",
+    "pages, redirects, expected",
     [
         (
             frozenset(
@@ -52,13 +52,13 @@ SITE = pywikibot.Site("test", "wikipedia")
 def test_get_redirects(
     mocker: MockerFixture,
     pages: frozenset[pywikibot.Page],
-    backlinks: Iterable[pywikibot.Page],
+    redirects: Iterable[pywikibot.Page],
     expected: frozenset[pywikibot.Page],
 ) -> None:
     """Test get_redirects."""
     mocker.patch(
-        "pywikibot_extensions.page.pywikibot.Page.backlinks",
-        return_value=backlinks,
+        "pywikibot_extensions.page.pywikibot.Page.redirects",
+        return_value=redirects,
     )
     mocker.patch(
         "pywikibot_extensions.page.pywikibot.Page.isRedirectPage",
@@ -87,7 +87,7 @@ def test_get_redirects_for_redirect(mocker: MockerFixture) -> None:
     test_target._isredir = False
     expected = frozenset([test_target, test_page])
     mocker.patch(
-        "pywikibot_extensions.page.pywikibot.Page.backlinks",
+        "pywikibot_extensions.page.pywikibot.Page.redirects",
         return_value=[test_page],
     )
     mocker.patch(

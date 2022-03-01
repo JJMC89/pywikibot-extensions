@@ -44,10 +44,7 @@ def get_redirects(
             continue
         link_pages.add(page)
         with suppress(pywikibot.exceptions.CircularRedirectError):
-            redirects = page.backlinks(
-                filter_redirects=True, namespaces=namespaces
-            )
-            link_pages.update(redirects)
+            link_pages.update(page.redirects(namespaces=namespaces))
     return frozenset(link_pages)
 
 
