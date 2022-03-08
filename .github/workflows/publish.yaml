@@ -2,13 +2,13 @@ name: Publish
 on:
   push:
     tags:
-      - v*.*.*
-  release:
-    types:
-      - released
+      - v[0-9]+.[0-9]+.[0-9]+
 jobs:
+  ci:
+    uses: ./.github/workflows/ci.yaml
   build-publish:
     name: Build and publish release
+    needs: ci
     permissions:
       contents: write
     runs-on: ubuntu-latest
