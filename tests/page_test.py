@@ -343,16 +343,30 @@ def test_filepage_megapixels(
 
 
 @pytest.mark.parametrize(
-    "using_pages, expected",
+    "using_pages, total, expected",
     [
-        (tuple(), []),
-        ([pywikibot.Page(SITE, "1")], [Page(SITE, "1")]),
-        ([pywikibot.FilePage(SITE, "2.png")], [Page(SITE, "File:2.png")]),
+        (tuple(), None, []),
+        ([pywikibot.Page(SITE, "1")], None, [Page(SITE, "1")]),
+        (
+            [pywikibot.FilePage(SITE, "2.png")],
+            None,
+            [Page(SITE, "File:2.png")],
+        ),
+        ([pywikibot.FilePage(SITE, "2.png")], 1, [Page(SITE, "File:2.png")]),
+        (
+            [
+                pywikibot.Page(SITE, "2"),
+                pywikibot.Page(SITE, "3"),
+            ],
+            1,
+            [Page(SITE, "2")],
+        ),
     ],
 )
 def test_filepage_usingpages(
     mocker: MockerFixture,
     using_pages: Iterable[pywikibot.Page],
+    total: int | None,
     expected: list[Page],
 ) -> None:
     """Test FilePage.usingPages."""
@@ -365,7 +379,7 @@ def test_filepage_usingpages(
         return_value=using_pages,
     )
     test_page = FilePage(SITE, "Sandbox.png")
-    assert list(test_page.usingPages()) == expected
+    assert list(test_page.usingPages(total=total)) == expected
 
 
 def test_file_page_usingpages_self(mocker: MockerFixture) -> None:
