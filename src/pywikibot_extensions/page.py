@@ -191,7 +191,10 @@ class FilePage(pywikibot.FilePage, Page):
         self, total: int | None = None, content: bool = False
     ) -> Generator[Page, None, None]:
         """Yield pages on which the file is displayed."""
-        for page in super().usingPages(total=total, content=content):
+        count = 0
+        for page in super().usingPages(content=content):
+            if total and count >= total:
+                return
             page = Page(page)
             # MediaWiki considers file redirects to be using the target flie,
             # but they are not actually using it.
@@ -201,6 +204,8 @@ class FilePage(pywikibot.FilePage, Page):
                     or not page.isRedirectPage()
                     or page.getRedirectTarget() != self
                 ):
+                    count += 1
                     yield page
             except pywikibot.exceptions.Error:  # pragma: no cover
+                count += 1
                 yield page
