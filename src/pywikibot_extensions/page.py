@@ -168,11 +168,6 @@ class FilePage(pywikibot.FilePage, Page):
         return super().from_wikilink(wikilink, site, default_namespace)
 
     @property
-    def is_used(self) -> bool:
-        """Return True if the file is used, False otherwise."""
-        return len(set(self.usingPages())) > 0
-
-    @property
     def megapixels(self) -> float | None:
         """
         Return the file's megapixels.

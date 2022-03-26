@@ -284,26 +284,6 @@ def test_page_save_bot_start_end(
     assert test_page.text == new_text
 
 
-@pytest.mark.parametrize(
-    "using_pages, expected",
-    [
-        (tuple(), False),
-        ((Page(SITE, "1"),), True),
-        ((Page(SITE, "2"), Page(SITE, "3")), True),
-    ],
-)
-def test_filepage_is_used(
-    mocker: MockerFixture, using_pages: Iterable[Page], expected: bool
-) -> None:
-    """Test FilePage.is_used."""
-    mocker.patch(
-        "pywikibot_extensions.page.FilePage.usingPages",
-        return_value=using_pages,
-    )
-    test_page = FilePage(SITE, "Sandbox.png")
-    assert test_page.is_used is expected
-
-
 class MockFileInfo:
     """Partial mock of pywikibot.page.FileInfo."""
 
