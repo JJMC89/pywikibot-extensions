@@ -21,7 +21,7 @@ skip_covered = true
 
 
 [tool.isort]
-py_version=37
+py_version = 37
 add_imports = ["from __future__ import annotations"]
 atomic = true
 ensure_newline_before_comments = true
@@ -76,7 +76,7 @@ packages = [
 ]
 readme = "README.md"
 repository = "https://github.com/JJMC89/pywikibot-extensions"
-version = "22.3.1"
+version = "22.3.26"
 
 [tool.poetry.dependencies]
 python = "^3.7"
