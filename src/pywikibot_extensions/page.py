@@ -16,12 +16,12 @@ from pywikibot.site import Namespace
 from pywikibot.textlib import removeDisabledParts
 
 
-FilePageType = TypeVar("FilePageType", bound="FilePage")
+FilePageT = TypeVar("FilePageT", bound="FilePage")
 NamespaceType = Union[int, str, Namespace]
 PageSource = Union[
     pywikibot.page.Page, pywikibot.site.BaseSite, pywikibot.page.BaseLink
 ]
-PageType = TypeVar("PageType", bound="Page")
+PageT = TypeVar("PageT", bound="Page")
 
 
 @lru_cache()
@@ -58,11 +58,11 @@ class Page(pywikibot.Page):
 
     @classmethod
     def from_wikilink(
-        cls: type[PageType],
+        cls: type[PageT],
         wikilink: object,
         site: pywikibot.site.BaseSite,
         default_namespace: int = 0,
-    ) -> PageType:
+    ) -> PageT:
         """
         Create a Page from a wikilink.
 
@@ -152,11 +152,11 @@ class FilePage(pywikibot.FilePage, Page):
 
     @classmethod
     def from_wikilink(
-        cls: type[FilePageType],
+        cls: type[FilePageT],
         wikilink: object,
         site: pywikibot.site.BaseSite,
         default_namespace: int = 6,
-    ) -> FilePageType:
+    ) -> FilePageT:
         """
         Create a FilePage from a wikilink.
 
