@@ -343,34 +343,34 @@ def test_filepage_megapixels(
         ),
     ],
 )
-def test_filepage_usingpages(
+def test_filepage_using_pages(
     mocker: MockerFixture,
     using_pages: Iterable[pywikibot.Page],
     total: int | None,
     expected: list[Page],
 ) -> None:
-    """Test FilePage.usingPages."""
+    """Test FilePage.using_pages."""
     for page in using_pages:
         if isinstance(page, pywikibot.FilePage):
             page._isredir = True
             page._redirtarget = pywikibot.FilePage(SITE, "Foo.png")
     mocker.patch(
-        "pywikibot_extensions.page.pywikibot.FilePage.usingPages",
+        "pywikibot_extensions.page.pywikibot.FilePage.using_pages",
         return_value=using_pages,
     )
     test_page = FilePage(SITE, "Sandbox.png")
-    assert list(test_page.usingPages(total=total)) == expected
+    assert list(test_page.using_pages(total=total)) == expected
 
 
-def test_file_page_usingpages_self(mocker: MockerFixture) -> None:
-    """Test FilePage.usingPages with redirect to self."""
+def test_file_page_using_pages_self(mocker: MockerFixture) -> None:
+    """Test FilePage.using_pages with redirect to self."""
     test_page = FilePage(SITE, "Sandbox.png")
     test_redirect = FilePage(SITE, "Sandbox2.png")
     test_redirect._isredir = True
     test_redirect._redirtarget = test_page
     other_using_pages = [Page(SITE, "1"), Page(SITE, "2")]
     mocker.patch(
-        "pywikibot_extensions.page.pywikibot.FilePage.usingPages",
+        "pywikibot_extensions.page.pywikibot.FilePage.using_pages",
         return_value=other_using_pages + [test_redirect],
     )
-    assert list(test_page.usingPages()) == other_using_pages
+    assert list(test_page.using_pages()) == other_using_pages
