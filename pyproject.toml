@@ -80,7 +80,7 @@ version = "22.3.26"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-pywikibot = "^7.1.0"
+pywikibot = "^7.4.0"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "2.19.0"
@@ -89,7 +89,7 @@ pytest = "7.1.2"
 pytest-cov = "3.0.0"
 pytest-mock = "3.7.0"
 pytest-socket = "0.5.1"
-pywikibot = {version = "^7.1.0", extras = ["mwparserfromhell"]}
+pywikibot = {version = "^7.4.0", extras = ["mwparserfromhell"]}
 
 [tool.pylint]
 
