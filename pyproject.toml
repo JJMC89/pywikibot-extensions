@@ -11,13 +11,10 @@ line-length = 79  # default: 88
 [tool.coverage]
 
 [tool.coverage.run]
-branch = true
+plugins = [
+    "covdefaults",
+]
 source_pkgs = ["pywikibot_extensions"]
-
-[tool.coverage.report]
-fail_under = 100
-show_missing = true
-skip_covered = true
 
 
 [tool.isort]
@@ -83,6 +80,7 @@ python = "^3.7"
 pywikibot = "^7.4.0"
 
 [tool.poetry.dev-dependencies]
+covdefaults = "2.2.0"
 pre-commit = "2.19.0"
 pylint = "2.13.9"
 pytest = "7.1.2"
