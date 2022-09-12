@@ -92,6 +92,6 @@ repos:
     hooks:
       - id: blacken-docs
   - repo: https://github.com/johnfraney/flake8-markdown
-    rev: v0.3.0
+    rev: v0.4.0
     hooks:
       - id: flake8-markdown
