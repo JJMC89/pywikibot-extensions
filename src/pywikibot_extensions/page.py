@@ -52,7 +52,7 @@ class Page(pywikibot.Page):
     """Represents a MediaWiki page."""
 
     BOT_START_END = re.compile(
-        r"^(.*?<!--\s*bot start\s*-->).*?(<!--\s*bot end\s*-->.*)$",
+        r"^(.*?<!--\s*bot start\s*-->)(.*?)(<!--\s*bot end\s*-->.*)$",
         flags=re.I | re.S,
     )
 
@@ -141,7 +141,7 @@ class Page(pywikibot.Page):
         text = text.strip()
         current_text = self.text  # type: ignore[has-type]
         if self.BOT_START_END.match(current_text):
-            self.text = self.BOT_START_END.sub(rf"\1\n{text}\2", current_text)
+            self.text = self.BOT_START_END.sub(rf"\1\n{text}\3", current_text)
         else:
             self.text = text
         self.save(minor=minor, botflag=botflag, **kwargs)
