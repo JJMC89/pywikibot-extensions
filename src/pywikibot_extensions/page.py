@@ -122,6 +122,7 @@ class Page(pywikibot.Page):
         *,
         minor: bool | None = False,
         botflag: bool | None = False,
+        force: bool = False,
         **kwargs: Any,
     ) -> None:
         """
@@ -130,12 +131,13 @@ class Page(pywikibot.Page):
         The area is specified by <!--bot start--> and <!--bot end-->.
 
         :param text: text to save to the page
-        :param minor: if True, mark this edit as minor
-        :param botflag: if True, mark this edit as made by a bot
+        :param minor: mark this edit as minor
+        :param botflag: mark this edit as made by a bot
+        :param force: ignore bot restrictions and create if nonexistent
 
         See :meth:`pywikibot.page.Page.save` for other arguments.
         """
-        if not self.exists():
+        if not force and not self.exists():
             pywikibot.warning(f"{self.title()} does not exist. Skipping.")
             return
         text = text.strip()
@@ -144,7 +146,7 @@ class Page(pywikibot.Page):
             self.text = self.BOT_START_END.sub(rf"\1\n{text}\3", current_text)
         else:
             self.text = text
-        self.save(minor=minor, botflag=botflag, **kwargs)
+        self.save(minor=minor, botflag=botflag, force=force, **kwargs)
 
 
 class FilePage(pywikibot.FilePage, Page):
