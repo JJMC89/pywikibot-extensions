@@ -237,31 +237,42 @@ def test_page_is_article_catches_exception(mocker: MockerFixture) -> None:
 
 
 @pytest.mark.parametrize(
-    "text, old_text, exists, new_text",
+    "text, old_text, exists, force, new_text",
     [
         (
             "Test",
             "",
             True,
+            False,
             "Test",
         ),
         (
             "Test",
             "<!--bot start-->Old<!--bot end-->",
             True,
+            False,
             "<!--bot start-->\nTest<!--bot end-->",
         ),
         (
             "\n* One\n* Two\n* Three",
             "<!--bot start -->\n* One\n* Two\n<!--bot END-->",
             True,
+            False,
             "<!--bot start -->\n* One\n* Two\n* Three<!--bot END-->",
         ),
         (
             "Test",
             "",
             False,
+            False,
             "",
+        ),
+        (
+            "Test",
+            "",
+            False,
+            True,
+            "Test",
         ),
     ],
 )
@@ -270,6 +281,7 @@ def test_page_save_bot_start_end(
     text: str,
     old_text: str,
     exists: bool,
+    force: bool,
     new_text: str,
 ) -> None:
     """Test Page.save_bot_start_end."""
@@ -280,7 +292,7 @@ def test_page_save_bot_start_end(
     mocker.patch("pywikibot_extensions.page.Page.save", return_value=True)
     test_page = Page(SITE, "Project:Sandbox")
     test_page.text = old_text
-    test_page.save_bot_start_end(text)
+    test_page.save_bot_start_end(text, force=force)
     assert test_page.text == new_text
 
 
