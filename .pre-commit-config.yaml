@@ -86,7 +86,6 @@ repos:
         additional_dependencies:
           - pytest
           - pytest-mock
-          - types-all
   - repo: https://github.com/asottile/blacken-docs
     rev: v1.12.1
     hooks:
