@@ -66,7 +66,7 @@ license = "MIT"
 name = "pywikibot-extensions"
 readme = "README.md"
 repository = "https://github.com/JJMC89/pywikibot-extensions"
-version = "22.11.12"
+version = "23.1.21"
 
 [tool.poetry.dependencies]
 python = "^3.7"
