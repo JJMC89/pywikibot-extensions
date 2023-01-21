@@ -14,7 +14,6 @@ line-length = 79  # default: 88
 plugins = [
     "covdefaults",
 ]
-source_pkgs = ["pywikibot_extensions"]
 
 
 [tool.isort]
@@ -65,9 +64,6 @@ description = "Extends the Pywikibot library"
 keywords = ["bot", "mediawiki"]
 license = "MIT"
 name = "pywikibot-extensions"
-packages = [
-    { include = "pywikibot_extensions", from = "src" },
-]
 readme = "README.md"
 repository = "https://github.com/JJMC89/pywikibot-extensions"
 version = "22.11.12"
@@ -83,6 +79,7 @@ pylint = "2.13.9"
 pytest = "7.2.1"
 pytest-cov = "4.0.0"
 pytest-mock = "3.10.0"
+pytest-randomly = "3.12.0"
 pytest-socket = "0.5.1"
 
 [tool.pylint]
