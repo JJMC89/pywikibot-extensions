@@ -55,12 +55,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: 3 :: Only",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Wiki",
     "Topic :: Utilities",
@@ -79,7 +74,7 @@ version = "22.11.12"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-pywikibot = "^7.4.0"
+pywikibot = ">=7.4.0"
 
 [tool.poetry.dev-dependencies]
 covdefaults = "2.2.2"
@@ -89,7 +84,6 @@ pytest = "7.2.1"
 pytest-cov = "4.0.0"
 pytest-mock = "3.10.0"
 pytest-socket = "0.5.1"
-pywikibot = {version = "^7.4.0", extras = ["mwparserfromhell"]}
 
 [tool.pylint]
 
