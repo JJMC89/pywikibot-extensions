@@ -86,11 +86,3 @@ repos:
         additional_dependencies:
           - pytest
           - pytest-mock
-  - repo: https://github.com/asottile/blacken-docs
-    rev: 1.13.0
-    hooks:
-      - id: blacken-docs
-  - repo: https://github.com/johnfraney/flake8-markdown
-    rev: v0.4.0
-    hooks:
-      - id: flake8-markdown
