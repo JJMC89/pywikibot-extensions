@@ -142,8 +142,10 @@ class Page(pywikibot.Page):
             return
         text = text.strip()
         current_text = self.text  # type: ignore[has-type]
-        if self.BOT_START_END.match(current_text):
-            self.text = self.BOT_START_END.sub(rf"\1\n{text}\3", current_text)
+        match_ = self.BOT_START_END.match(current_text)
+        if match_:
+            # re.sub will raise if text contains a bad escape
+            self.text = f"{match_.group(1)}\n{text}{match_.group(3)}"
         else:
             self.text = text
         self.save(minor=minor, botflag=botflag, force=force, **kwargs)
