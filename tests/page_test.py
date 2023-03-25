@@ -247,11 +247,11 @@ def test_page_is_article_catches_exception(mocker: MockerFixture) -> None:
             "Test",
         ),
         (
-            "Test",
+            r"\Poof",
             "<!--bot start-->Old<!--bot end-->",
             True,
             False,
-            "<!--bot start-->\nTest<!--bot end-->",
+            "<!--bot start-->\n\\Poof<!--bot end-->",
         ),
         (
             "\n* One\n* Two\n* Three",
