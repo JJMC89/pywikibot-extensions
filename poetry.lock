@@ -658,14 +658,14 @@ pytest = ">=3.6.3"
 
 [[package]]
 name = "pywikibot"
-version = "8.1.0"
+version = "8.1.2"
 description = "Python MediaWiki Bot Framework"
 category = "main"
 optional = false
 python-versions = ">=3.6.1"
 files = [
-    {file = "pywikibot-8.1.0-py3-none-any.whl", hash = "sha256:5d945ee05334cee5a2a0886c2a2eedfb28040488d120b5e15796b68d2aaadf4e"},
-    {file = "pywikibot-8.1.0.tar.gz", hash = "sha256:b5a02b32a43a14d22b2d236b585c2d7514051846edbcfb0daf7704b5aaaca3a3"},
+    {file = "pywikibot-8.1.2-py3-none-any.whl", hash = "sha256:05f78a650e2b13848bc4dfb47347a1870844f0f24d61979bedb2097a859324f3"},
+    {file = "pywikibot-8.1.2.tar.gz", hash = "sha256:0ba3b07cc3417d7d0c0ffb4d4901e2e27070bad4f0215b7728c2ba7e9315f7c2"},
 ]
 
 [package.dependencies]
