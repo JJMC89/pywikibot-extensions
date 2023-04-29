@@ -6,48 +6,63 @@ on:
 jobs:
   ci:
     uses: ./.github/workflows/ci.yaml
-  build-publish:
-    name: Build and publish release
+  build:
+    name: build distribution
     needs: ci
-    permissions:
-      contents: write
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Python
+      - name: set up python
         uses: actions/setup-python@v4
         with:
           python-version: 3.7
-      - name: Install Poetry
+      - name: install poetry
         uses: snok/install-poetry@v1
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v3
         with:
           persist-credentials: false
-      - name: Check version and git tag
+      - name: check version and git tag
         run: |
           DATE=v$(date -u +%y.%-m.%-d)
           VERSION=v$(poetry version --short)
           TAG=$(git describe --tags --abbrev=0)
           if [ $VERSION != $DATE ]; then
-            echo Version should be $DATE instead of $VERSION.
+            echo version should be $DATE instead of $VERSION.
             exit 1
           elif [ $TAG != $DATE ]; then
-            echo Tag should be $DATE instead of $TAG.
+            echo tag should be $DATE instead of $TAG.
             exit 1
           fi
-      - name: Build
+      - name: build
         run: poetry build
-      - name: GitHub release with assets
+      - name: upload dist artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+  publish:
+    environment: publish
+    name: publish distribution
+    needs: build
+    permissions:
+      contents: write
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: download dist artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+      - name: github release with assets
         id: release
         uses: softprops/action-gh-release@v1
         with:
           files: dist/*
           generate_release_notes: true
-      - name: Publish to PyPI
+      - name: publish to pypi
         uses: pypa/gh-action-pypi-publish@v1
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
-      - name: Rollback release on failure
+      - name: rollback release on failure
         if: failure() && steps.release.outputs.id != ''
         uses: author/action-rollback@1.0.3
         with:
