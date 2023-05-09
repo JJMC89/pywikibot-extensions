@@ -36,11 +36,11 @@ repos:
       - id: python-no-log-warn
       - id: python-use-type-annotations
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.3.2
+    rev: v3.4.0
     hooks:
       - id: pyupgrade
         args:
-          - --py37-plus
+          - --py38-plus
   - repo: https://github.com/PyCQA/autoflake
     rev: v2.1.1
     hooks:
