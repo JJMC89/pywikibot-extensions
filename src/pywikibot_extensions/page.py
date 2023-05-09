@@ -24,7 +24,7 @@ PageSource = Union[
 PageT = TypeVar("PageT", bound="Page")
 
 
-@lru_cache()
+@lru_cache
 def get_redirects(
     pages: frozenset[pywikibot.Page],
     namespaces: NamespaceType | frozenset[NamespaceType] | None = None,
