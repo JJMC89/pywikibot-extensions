@@ -183,8 +183,7 @@ class FilePage(pywikibot.FilePage, Page):
             width = self.latest_file_info.width
         except AttributeError:
             return None
-        else:
-            return height * width / 1e6 or None
+        return height * width / 1e6 or None
 
     def using_pages(self, **kwargs: Any) -> Generator[Page, None, None]:
         """Yield pages on which the file is displayed."""
