@@ -18,7 +18,7 @@ jobs:
       - name: install poetry
         uses: snok/install-poetry@v1
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
       - name: check version and git tag
