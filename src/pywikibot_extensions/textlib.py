@@ -3,6 +3,7 @@ Functions for manipulating wikitext.
 
 This module extends pywikibot.textlib.
 """
+
 from __future__ import annotations
 
 from typing import Iterable
