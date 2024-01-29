@@ -3,6 +3,7 @@ Objects representing various MediaWiki pages.
 
 This module extends pywikibot.page.
 """
+
 from __future__ import annotations
 
 import re
@@ -96,9 +97,11 @@ class Page(pywikibot.Page):
             templates = [templates]
         all_template_pages = get_redirects(
             frozenset(
-                tpl
-                if isinstance(tpl, pywikibot.Page)
-                else Page(self.site, tpl, ns=10)
+                (
+                    tpl
+                    if isinstance(tpl, pywikibot.Page)
+                    else Page(self.site, tpl, ns=10)
+                )
                 for tpl in templates
             )
         )
