@@ -56,7 +56,7 @@ jobs:
           path: dist
       - name: github release with assets
         id: release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: dist/*
           generate_release_notes: true
@@ -64,6 +64,6 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
       - name: rollback release on failure
         if: failure() && steps.release.outputs.id != ''
-        uses: author/action-rollback@1.0.3
+        uses: author/action-rollback@1.0.4
         with:
           release_id: ${{ steps.release.outputs.id }}
