@@ -70,8 +70,8 @@ pywikibot = ">=7.4.0"
 
 [tool.poetry.dev-dependencies]
 covdefaults = "2.3.0"
-pylint = "3.1.0"
-pytest = "8.2.0"
+pylint = "3.2.2"
+pytest = "8.2.1"
 pytest-cov = "5.0.0"
 pytest-mock = "3.14.0"
 pytest-randomly = "3.15.0"
