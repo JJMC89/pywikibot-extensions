@@ -188,7 +188,7 @@ class FilePage(pywikibot.FilePage, Page):
             return None
         return height * width / 1e6 or None
 
-    def using_pages(self, **kwargs: Any) -> Generator[Page, None, None]:
+    def using_pages(self, **kwargs: Any) -> Generator[Page]:
         """Yield pages on which the file is displayed."""
         count = 0
         total = kwargs.pop("total", None)
