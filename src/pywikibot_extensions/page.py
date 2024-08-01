@@ -124,7 +124,7 @@ class Page(pywikibot.Page):
         text: str,
         *,
         minor: bool | None = False,
-        botflag: bool | None = False,
+        bot: bool | None = False,
         force: bool = False,
         **kwargs: Any,
     ) -> None:
@@ -135,7 +135,7 @@ class Page(pywikibot.Page):
 
         :param text: text to save to the page
         :param minor: mark this edit as minor
-        :param botflag: mark this edit as made by a bot
+        :param bot: mark this edit as made by a bot
         :param force: ignore bot restrictions and create if nonexistent
 
         See :meth:`pywikibot.page.Page.save` for other arguments.
@@ -151,7 +151,7 @@ class Page(pywikibot.Page):
             self.text = f"{match_.group(1)}\n{text}{match_.group(3)}"
         else:
             self.text = text
-        self.save(minor=minor, botflag=botflag, force=force, **kwargs)
+        self.save(minor=minor, bot=bot, force=force, **kwargs)
 
 
 class FilePage(pywikibot.FilePage, Page):
