@@ -8,9 +8,10 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from collections.abc import Generator, Iterable
 from contextlib import suppress
 from functools import lru_cache
-from typing import Any, Generator, Iterable, TypeVar, Union
+from typing import Any, TypeVar, Union
 
 import pywikibot
 from pywikibot.site import Namespace

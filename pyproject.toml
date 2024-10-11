@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.black]
-target-version = ["py38"]
+target-version = ["py39"]
 line-length = 79  # default: 88
 
 
@@ -17,19 +17,14 @@ plugins = [
 
 
 [tool.isort]
-py_version = 38
-add_imports = ["from __future__ import annotations"]
 atomic = true
-ensure_newline_before_comments = true
-force_grid_wrap = 0
-include_trailing_comma = true
 lines_after_imports = 2
-multi_line_output = 3
-use_parentheses = true
+profile = "black"
+py_version = 39
 
 
 [tool.mypy]
-python_version = 3.8
+python_version = 3.9
 enable_error_code = [
     "ignore-without-code",
 ]
@@ -65,12 +60,12 @@ repository = "https://github.com/JJMC89/pywikibot-extensions"
 version = "24.9.21"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 pywikibot = ">=9.3.0"
 
 [tool.poetry.dev-dependencies]
 covdefaults = "2.3.0"
-pylint = "3.2.7"
+pylint = "3.3.1"
 pytest = "8.3.3"
 pytest-cov = "5.0.0"
 pytest-mock = "3.14.0"
