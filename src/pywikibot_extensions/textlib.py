@@ -6,7 +6,7 @@ This module extends pywikibot.textlib.
 
 from __future__ import annotations
 
-from typing import Iterable
+from collections.abc import Iterable
 
 from pywikibot.page import BasePage
 
