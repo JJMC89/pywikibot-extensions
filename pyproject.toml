@@ -1,6 +1,37 @@
 [build-system]
-requires = ["poetry_core>=1.0.8"]
+requires = ["poetry-core>=2.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[project]
+authors = [
+    { name = "JJMC89" },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Wiki",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+dependencies = [
+    "pywikibot (>=9.3.0)",
+]
+description = "Extends the Pywikibot library"
+keywords = [ "bot", "mediawiki" ]
+license = { text = "MIT" }
+name = "pywikibot-extensions"
+readme = "README.md"
+requires-python = ">=3.9"
+version = "24.9.21"
+
+[project.urls]
+source = "https://github.com/JJMC89/pywikibot-extensions"
 
 
 [tool.black]
@@ -37,39 +68,18 @@ ignore_missing_imports = true
 
 
 [tool.poetry]
-authors = ["JJMC89"]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Environment :: Console",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Natural Language :: English",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3 :: Only",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-    "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Wiki",
-    "Topic :: Utilities",
-    "Typing :: Typed",
-]
-description = "Extends the Pywikibot library"
-keywords = ["bot", "mediawiki"]
-license = "MIT"
-name = "pywikibot-extensions"
-readme = "README.md"
-repository = "https://github.com/JJMC89/pywikibot-extensions"
-version = "24.9.21"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pywikibot = ">=9.3.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.test.dependencies]
 covdefaults = "2.3.0"
 pytest = "8.3.4"
 pytest-cov = "6.0.0"
 pytest-mock = "3.14.0"
 pytest-randomly = "3.16.0"
 pytest-socket = "0.7.0"
+
 
 [tool.pytest]
 
