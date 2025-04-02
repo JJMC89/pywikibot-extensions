@@ -74,8 +74,8 @@ python = "^3.9"
 
 [tool.poetry.group.test.dependencies]
 covdefaults = "2.3.0"
-pytest = "8.3.4"
-pytest-cov = "6.0.0"
+pytest = "8.3.5"
+pytest-cov = "6.1.0"
 pytest-mock = "3.14.0"
 pytest-randomly = "3.16.0"
 pytest-socket = "0.7.0"
