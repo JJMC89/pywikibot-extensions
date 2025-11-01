@@ -509,14 +509,14 @@ pytest = ">=6.2.5"
 
 [[package]]
 name = "pywikibot"
-version = "10.5.0"
+version = "10.7.0"
 description = "Python MediaWiki Bot Framework"
 optional = false
 python-versions = ">=3.8.0"
 groups = ["main"]
 files = [
-    {file = "pywikibot-10.5.0-py3-none-any.whl", hash = "sha256:d25758338a93d5be9fdc594de5a084ed6bc6ae71804eebbb870bbc31b61582cd"},
-    {file = "pywikibot-10.5.0.tar.gz", hash = "sha256:19d6cb023a3b6112032cb5120e083da6d83a33cada742d9582bb09c0a847fe68"},
+    {file = "pywikibot-10.7.0-py3-none-any.whl", hash = "sha256:cba68530d2038ef670d15be6d09864eec2b197842f7cbb2c575a82b84dafa649"},
+    {file = "pywikibot-10.7.0.tar.gz", hash = "sha256:ed84c2492f94c83741e5cfc24aeab022bbbd54b522d147a3e64b001e67502443"},
 ]
 
 [package.dependencies]
@@ -536,7 +536,7 @@ memento = ["memento_client (==0.6.1)"]
 mwoauth = ["PyJWT (!=2.10.0,!=2.10.1) ; python_version > \"3.8\"", "mwoauth (>=0.2.4,!=0.3.1)"]
 mysql = ["PyMySQL (>=1.1.1)"]
 scripts = ["isbnlib", "memento_client (==0.6.1)", "unidecode"]
-tkinter = ["Pillow (==10.4.0) ; python_version < \"3.9\"", "Pillow (>=11.1.0) ; python_version > \"3.8\""]
+tkinter = ["Pillow (==10.4.0) ; platform_python_implementation != \"PyPy\" and python_version < \"3.9\"", "Pillow (==10.4.0) ; platform_python_implementation == \"PyPy\" and python_version < \"3.9\"", "Pillow (>=11.1.0) ; platform_python_implementation != \"PyPy\" and python_version >= \"3.10\"", "Pillow (>=11.1.0) ; platform_python_implementation == \"PyPy\" and python_version >= \"3.11\"", "Pillow (>=11.1.0,<11.3.0) ; platform_python_implementation != \"PyPy\" and python_version == \"3.9\"", "Pillow (>=11.1.0,<11.3.0) ; platform_python_implementation == \"PyPy\" and python_version >= \"3.9\" and python_version < \"3.11\""]
 weblinkchecker-py = ["memento_client (==0.6.1)"]
 wikitextparser = ["wikitextparser (>=0.56.3)"]
 
