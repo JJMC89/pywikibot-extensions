@@ -24,10 +24,10 @@ dependencies = [
 ]
 description = "Extends the Pywikibot library"
 keywords = [ "bot", "mediawiki" ]
-license = { text = "MIT" }
+license = "MIT"
 name = "pywikibot-extensions"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 version = "24.9.21"
 
 [project.urls]
@@ -35,7 +35,7 @@ source = "https://github.com/JJMC89/pywikibot-extensions"
 
 
 [tool.black]
-target-version = ["py39"]
+target-version = ["py310"]
 line-length = 79  # default: 88
 
 
@@ -51,11 +51,11 @@ plugins = [
 atomic = true
 lines_after_imports = 2
 profile = "black"
-py_version = 39
+py_version = 310
 
 
 [tool.mypy]
-python_version = 3.9
+python_version = 3.10
 enable_error_code = [
     "ignore-without-code",
 ]
@@ -70,7 +70,7 @@ ignore_missing_imports = true
 [tool.poetry]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 
 [tool.poetry.group.test.dependencies]
 covdefaults = "2.3.0"
