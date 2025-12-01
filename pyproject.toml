@@ -82,6 +82,8 @@ pytest-socket = "0.7.0"
 
 
 [tool.pytest]
-
-[tool.pytest.ini_options]
-addopts = "--cov --no-cov-on-fail"
+addopts = [
+    "--cov",
+    "--no-cov-on-fail",
+]
+strict = true
