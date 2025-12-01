@@ -74,7 +74,7 @@ python = "^3.10"
 
 [tool.poetry.group.test.dependencies]
 covdefaults = "2.3.0"
-pytest = "8.4.2"
+pytest = "9.0.1"
 pytest-cov = "7.0.0"
 pytest-mock = "3.15.1"
 pytest-randomly = "4.0.1"
@@ -82,6 +82,8 @@ pytest-socket = "0.7.0"
 
 
 [tool.pytest]
-
-[tool.pytest.ini_options]
-addopts = "--cov --no-cov-on-fail"
+addopts = [
+    "--cov",
+    "--no-cov-on-fail",
+]
+strict = true
