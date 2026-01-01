@@ -413,14 +413,14 @@ windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "pytest"
-version = "9.0.1"
+version = "9.0.2"
 description = "pytest: simple powerful testing with Python"
 optional = false
 python-versions = ">=3.10"
 groups = ["test"]
 files = [
-    {file = "pytest-9.0.1-py3-none-any.whl", hash = "sha256:67be0030d194df2dfa7b556f2e56fb3c3315bd5c8822c6951162b92b32ce7dad"},
-    {file = "pytest-9.0.1.tar.gz", hash = "sha256:3e9c069ea73583e255c3b21cf46b8d3c56f6e3a1a8f6da94ccb0fcf57b9d73c8"},
+    {file = "pytest-9.0.2-py3-none-any.whl", hash = "sha256:711ffd45bf766d5264d487b917733b453d917afd2b0ad65223959f59089f875b"},
+    {file = "pytest-9.0.2.tar.gz", hash = "sha256:75186651a92bd89611d1d9fc20f0b4345fd827c41ccd5c299a868a05d70edf11"},
 ]
 
 [package.dependencies]
@@ -505,14 +505,14 @@ pytest = ">=6.2.5"
 
 [[package]]
 name = "pywikibot"
-version = "10.7.2"
+version = "10.7.4"
 description = "Python MediaWiki Bot Framework"
 optional = false
 python-versions = ">=3.8.0"
 groups = ["main"]
 files = [
-    {file = "pywikibot-10.7.2-py3-none-any.whl", hash = "sha256:ad024987052aaf86739b464c629acf8d11ae4cb941a3c3384e40e695da452d57"},
-    {file = "pywikibot-10.7.2.tar.gz", hash = "sha256:6c5537496934ea703d3a43c57cde599fea93645baa1bf42214aae58243649db8"},
+    {file = "pywikibot-10.7.4-py3-none-any.whl", hash = "sha256:ae1353fbf3321c55c4b52f71194d04c7d70ece7d65c856e8539b2d5b9fbd2042"},
+    {file = "pywikibot-10.7.4.tar.gz", hash = "sha256:fe11df6512e812068f2992eeb3dc7f7793bad869f053fd40ecf02c79b1a3eb7e"},
 ]
 
 [package.dependencies]
@@ -645,4 +645,4 @@ zstd = ["backports-zstd (>=1.0.0) ; python_version < \"3.14\""]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "0052179eb42261b713b8d086d741770f1c566c7002ed80ed09a3d6c57c13076a"
+content-hash = "f74dfabba3dcc539d83c7a449678d5b22de6a68babd16d0f35f054de0632427f"
