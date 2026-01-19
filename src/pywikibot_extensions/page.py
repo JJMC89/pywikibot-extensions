@@ -17,7 +17,6 @@ import pywikibot
 from pywikibot.site import Namespace
 from pywikibot.textlib import removeDisabledParts
 
-
 FilePageT = TypeVar("FilePageT", bound="FilePage")
 NamespaceType = Union[int, str, Namespace]
 PageSource = Union[
