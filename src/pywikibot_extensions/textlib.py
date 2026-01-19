@@ -10,7 +10,6 @@ from collections.abc import Iterable
 
 from pywikibot.page import BasePage
 
-
 # The namespace names must be substituted into this regex,
 # e.g., FILE_LINK_REGEX.format("|".join(site.namespaces.FILE)).
 # Adds named groups to pywikibot.textlib.FILE_LINK_REGEX

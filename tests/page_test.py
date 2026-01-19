@@ -10,7 +10,6 @@ from pytest_mock import MockerFixture
 
 from pywikibot_extensions.page import FilePage, Page, get_redirects
 
-
 SITE = pywikibot.Site("test", "wikipedia")
 
 
