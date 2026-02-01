@@ -505,14 +505,14 @@ pytest = ">=6.2.5"
 
 [[package]]
 name = "pywikibot"
-version = "10.7.4"
+version = "10.7.6"
 description = "Python MediaWiki Bot Framework"
 optional = false
 python-versions = ">=3.8.0"
 groups = ["main"]
 files = [
-    {file = "pywikibot-10.7.4-py3-none-any.whl", hash = "sha256:ae1353fbf3321c55c4b52f71194d04c7d70ece7d65c856e8539b2d5b9fbd2042"},
-    {file = "pywikibot-10.7.4.tar.gz", hash = "sha256:fe11df6512e812068f2992eeb3dc7f7793bad869f053fd40ecf02c79b1a3eb7e"},
+    {file = "pywikibot-10.7.6-py3-none-any.whl", hash = "sha256:47dff243b5a74f292cd38261670156d036b6566338315d9eb4393ed78bc3f9de"},
+    {file = "pywikibot-10.7.6.tar.gz", hash = "sha256:7c1cdcad5b6a45fede3a7afa6e12000bd546ce3b96a74e20f89abba91bae9e48"},
 ]
 
 [package.dependencies]
