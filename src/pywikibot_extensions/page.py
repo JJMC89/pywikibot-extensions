@@ -14,6 +14,7 @@ from functools import lru_cache
 from typing import Any, TypeVar, Union
 
 import pywikibot
+import pywikibot.exceptions
 from pywikibot.site import Namespace
 from pywikibot.textlib import removeDisabledParts
 
@@ -56,6 +57,14 @@ class Page(pywikibot.Page):
         r"^(.*?<!--\s*bot start\s*-->)(.*?)(<!--\s*bot end\s*-->.*)$",
         flags=re.I | re.S,
     )
+
+    def get(self, force: bool = False, get_redirect: bool = False) -> str:
+        """Return the wiki-text of the page."""
+        try:
+            text: str = super().get(force, get_redirect)
+        except pywikibot.exceptions.SectionError:  # T422859
+            text = self.latest_revision.text
+        return text
 
     @classmethod
     def from_wikilink(
