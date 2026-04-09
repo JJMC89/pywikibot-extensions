@@ -28,7 +28,7 @@ license = "MIT"
 name = "pywikibot-extensions"
 readme = "README.md"
 requires-python = ">=3.10"
-version = "24.9.21"
+version = "26.4.9"
 
 [project.urls]
 source = "https://github.com/JJMC89/pywikibot-extensions"
