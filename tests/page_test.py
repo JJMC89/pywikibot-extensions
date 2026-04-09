@@ -96,6 +96,17 @@ def test_get_redirects_for_redirect(mocker: MockerFixture) -> None:
     assert get_redirects(frozenset([test_page])) == expected
 
 
+def test_page_get_sectionerror(mocker: MockerFixture) -> None:
+    """Test that Page.get does not raise SectionError."""
+    mocker.patch(
+        "pywikibot_extensions.page.pywikibot.page.BasePage.get",
+        side_effect=pywikibot.exceptions.SectionError(
+            "'abc' is not a valid section of Project:Sandbox"
+        ),
+    )
+    Page(SITE, "Project:Sandbox#abc").get()
+
+
 @pytest.mark.parametrize(
     "wikilink, namespace, expected",
     [
