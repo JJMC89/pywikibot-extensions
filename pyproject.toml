@@ -20,7 +20,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "pywikibot >= 9.3.0",
+    "pywikibot >= 11.2.0",
 ]
 description = "Extends the Pywikibot library"
 keywords = [ "bot", "mediawiki" ]
@@ -76,7 +76,7 @@ covdefaults = "2.3.0"
 pytest = "9.0.3"
 pytest-cov = "7.1.0"
 pytest-mock = "3.15.1"
-pytest-randomly = "4.0.1"
+pytest-randomly = "4.1.0"
 pytest-socket = "0.7.0"
 
 
