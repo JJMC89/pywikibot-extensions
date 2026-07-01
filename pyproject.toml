@@ -20,7 +20,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "pywikibot >= 9.3.0",
+    "pywikibot >= 11.4.2",
 ]
 description = "Extends the Pywikibot library"
 keywords = [ "bot", "mediawiki" ]
@@ -73,7 +73,7 @@ python = "^3.10"
 
 [tool.poetry.group.test.dependencies]
 covdefaults = "2.3.0"
-pytest = "9.0.3"
+pytest = "9.1.1"
 pytest-cov = "7.1.0"
 pytest-mock = "3.15.1"
 pytest-randomly = "4.1.0"
