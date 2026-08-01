@@ -520,14 +520,14 @@ pytest = ">=7.0.0"
 
 [[package]]
 name = "pywikibot"
-version = "11.4.2"
+version = "11.6.0"
 description = "Python MediaWiki Bot Framework"
 optional = false
 python-versions = ">=3.9.0"
 groups = ["main"]
 files = [
-    {file = "pywikibot-11.4.2-py3-none-any.whl", hash = "sha256:19d9630973e5ecf1997306cf7a2257095022a73305a6ff215f11f35c4a3a2400"},
-    {file = "pywikibot-11.4.2.tar.gz", hash = "sha256:6d0f201d40587f944a961a3c6b68a95f2d854eafcf035496b732feed3c2f3169"},
+    {file = "pywikibot-11.6.0-py3-none-any.whl", hash = "sha256:5c2d55695ed6fb25fd4ac037b87c41c113346902f9fd8e891a09b88626a6076f"},
+    {file = "pywikibot-11.6.0.tar.gz", hash = "sha256:87e2d215afb07d8d3c94e38245db912d24380b4e3756969271283fe6dd577865"},
 ]
 
 [package.dependencies]
@@ -664,4 +664,4 @@ zstd = ["backports-zstd (>=1.0.0) ; python_version < \"3.14\""]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "6e307b01c52440b6a5dcf2143c11a00da2f6dea480166fa37af0b55fe3cb493a"
+content-hash = "7f1969fb8f472c5669d986c68f20bd4ea57df6e44d5486bb516df772544e19c7"
