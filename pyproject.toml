@@ -20,7 +20,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "pywikibot >= 11.7.0",
+    "pywikibot >= 9.3.0",
 ]
 description = "Extends the Pywikibot library"
 keywords = [ "bot", "mediawiki" ]
